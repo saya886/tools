@@ -1,0 +1,77 @@
+// 对接自动填表脚本
+
+// 1. 获取需要填表的任务列表
+
+
+remote_url:            http://192.168.18.142:8000/flow/tasks/?fn=GetTaskListOnAudit
+method:                GET
+response:
+    [
+        {
+            "sinfo": 1117
+        }
+    ]
+
+
+// 2. 获取软著信息:
+remote_url:           http://192.168.18.142:8000/order/sinfobase/1117/
+method:               GET
+response:
+    {
+        "id": 1117,
+        "serialNumber": "43f0c4fda8434b01907845e5f85f82f2",
+        "name": "A",
+        "shorterName": "a",
+        "version": "v1.0",
+        "completionDate": "2019-10-01",
+        "publicDate": "2019-10-16",
+        "hardwareEnv": "a",
+        "softwareEnv": "a",
+        "developmentLanguage": "a",
+        "serviceType": 1,
+        "serviceTime": 7,
+        "applicant": null,
+        "obligee": [
+            7
+        ]
+    }
+
+
+// 3. 获取著作权人信息和申请人信息
+remote_url:           http://192.168.18.142:8000/flow/tasks/?fn=getSinfoDetailById&id=1117
+method:               GET
+response:
+    {
+        "applicant": {
+            "id": 2,
+            "name": "王",
+            "company": "上海企得好",
+            "phone": "185885884321",
+            "creditCode": "12374201743928162834",
+            "addr": "上海",
+            "postalCode": "450000",
+            "date": "2019-09-09",
+            "url": "http://erp.qidehao.net:8000/file/user/xiaoshou/taskfile/合同.pdf"
+        },
+        "obligees": [
+            {
+                "id": 7,
+                "serialNumber": "eac17c5555d44b429588e66a9ee025e9",
+                "name": "上海企得好",
+                "type": "企业法人",
+                "nationality": "中国",
+                "province": "上海",
+                "city": "上海",
+                "documentType": "企业法人营业执照",
+                "documentNum": "46789MKHFD482946",
+                "parkName": "其他园区",
+                "enterpriseType": "私营企业",
+                "user_id": 18
+            }
+        ]
+    }
+
+login_api 
+http://192.168.18.142:8000/auth/login/
+shengchanzhuguan
+adc6847f56510b6310750cf53cc07fe1

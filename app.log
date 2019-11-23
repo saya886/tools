@@ -1,0 +1,6 @@
+CRITICAL:2019-10-09 08:20:10,423:Host www.python.org unknown
+ERROR:2019-10-09 08:20:10,426:Couldn't find 'spam'
+WARNING:2019-10-09 08:20:10,426:Feature is deprecated
+CRITICAL$2019-10-09 08:21:18,941$Host www.python.org unknown
+ERROR$2019-10-09 08:21:18,941$Couldn't find 'spam'
+WARNING$2019-10-09 08:21:18,941$Feature is deprecated
